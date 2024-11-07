@@ -1,3 +1,5 @@
+import { Providers } from "@/components/Providers";
+import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -14,7 +16,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body className={cn("min-h-screen antialiased")}>
+        <Providers>
+          <main className="text-foreground bg-background dark h-screen">
+            {children}
+          </main>
+        </Providers>
+      </body>
     </html>
   );
 }
